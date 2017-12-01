@@ -18,7 +18,6 @@ $(function () {
             firebase.auth.GithubAuthProvider.PROVIDER_ID
         ]
     };
-  
    // Initialize the FirebaseUI Widget using Firebase.
   var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // The start method will wait until the DOM is loaded.
@@ -27,14 +26,12 @@ $(function () {
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
-                       var providerData = user.providerData;
- 
+            var providerData = user.providerData;
             $.get('/user/'+providerData[0].uid, function(data) {
               if(data.exist=='true'){
                console.log('user does exist');
               }else{
-                            $.post('/api/user',{user:providerData},function(){
-            
+             $.post('/api/user',{user:providerData},function(){
             });
               }
                });
@@ -48,7 +45,7 @@ $(function () {
   }
   $("#firebaseui-auth-container").on( "click", function() {
      Initialize ();
-     setTimeout(function(){location.href='loading.html'; }, 1000);
+     setTimeout(function(){location.href='loading.html'; }, 100);
      
    });
       $("#signOut").on( "click", function() {
@@ -59,8 +56,4 @@ $(function () {
             // An error happened.
           });
       });
-     
-
-
-
 });
