@@ -18,17 +18,18 @@
     <tbody id='data'>
 
     </tbody>
-  </table>
-
+  </table> 
+ <div class="row text-center " style='margin-top: 185px;'>
+   <button type="button" class="btn btn-danger" id="signOut">Sign Out</button>
 
 </body>
 <script type="text/javascript">
     $( document ).ready(function() {
     $.get('/api/users/', function( data ) {
      for(var index in data){
-        var id='<th>'+data[index].id+'<th>';
-        var uid='<th>'+data[index].uid+'<th>';
-        var name='<th>'+data[index].name+'<th>';
+        var id='<th>'+data[index].id+'</th>';
+        var uid='<th>'+data[index].uid+'</th>';
+        var name='<th>'+data[index].name+'</th>';
         $('#data').append('<tr>'+id+uid+name+'</th>');
      }
     });

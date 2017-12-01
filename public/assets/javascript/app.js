@@ -18,26 +18,26 @@ $(function () {
             firebase.auth.GithubAuthProvider.PROVIDER_ID
         ]
     };
-
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  
+   // Initialize the FirebaseUI Widget using Firebase.
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // The start method will wait until the DOM is loaded.
-    ui.start('#firebaseui-auth-container', uiConfig);
-
-    var providerData;
-    initApp = function() {
+  // ui.start('#firebaseui-auth-container', uiConfig);
+   function  Initialize (){
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
-            var providerData = user.providerData;
-               $.post('/api/user',{user:providerData},function(){
-                console.log('sent');
-              });
-            user.getIdToken().then(function(accessToken) {
-              console.log(JSON.stringify({
-                providerData: providerData
-              }, null, '  '));
+                       var providerData = user.providerData;
+ 
+            $.get('/user/'+providerData[0].uid, function(data) {
+              if(data.exist=='true'){
+               console.log('user does exist');
+              }else{
+                            $.post('/api/user',{user:providerData},function(){
+            
             });
+              }
+               });
           } else {
             // User is signed out.
             console.log("You are not signed in");
@@ -45,14 +45,12 @@ $(function () {
         }, function(error) {
           console.log(error);
         });
-      };
-
-      window.addEventListener('load', function() {
-        initApp();
-      });
-
+  }
+  $("#firebaseui-auth-container").on( "click", function() {
+     Initialize ();
+     setTimeout(function(){location.href='loading.html'; }, 1000);
      
-
+   });
       $("#signOut").on( "click", function() {
         firebase.auth().signOut().then(function() {
             console.log("Sign Out Successful!")

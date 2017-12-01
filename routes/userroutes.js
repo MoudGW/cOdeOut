@@ -9,9 +9,28 @@ module.exports = function(app) {
       res.json(dbuser);
     });
     });
-  
+   //---------
+    app.get('/user/:uid', function(req, res) {
+      var uid = req.params.uid;
+    db.user.findAll({
+    where: {
+    uid: uid}
+    }).then(function(dbuser) {
+      var length=dbuser.length;
+      if(length==0)
+      {
+        res.json(dbuser);
+      }
+      else{
+        res.json({'exist':'true'}); 
+       }
+    });
+    });
+
+    //-----
     app.post("/api/user", function(req, res) {
-    console.log(req.body);
+    //console.log(req.body);
+
     db.user.create({
       uid: parseInt(req.body.user[0].uid),
       name: req.body.user[0].displayName
@@ -19,5 +38,5 @@ module.exports = function(app) {
     .then(function(dbuser) {
       res.json(db.user);
     });
-  });
-};
+    });
+}
