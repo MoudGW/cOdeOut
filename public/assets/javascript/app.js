@@ -1,29 +1,8 @@
 $(function () {
     // Initialize Firebase
-
-    var config = {
-        apiKey: "AIzaSyCwUkcv76d83PbAa3NaCflYCOaIoECN8NY",
-        authDomain: "gw-coding-buds.firebaseapp.com",
-        databaseURL: "https://gw-coding-buds.firebaseio.com",
-        projectId: "gw-coding-buds",
-        storageBucket: ""
-    };
-    firebase.initializeApp(config);
-
-    // FirebaseUI config.
-    var uiConfig = {
-        signInSuccessUrl: 'data.html',
-        signInOptions: [
-            // Leave the lines as is for the providers you want to offer your users.
-            firebase.auth.GithubAuthProvider.PROVIDER_ID
-        ]
-    };
-   // Initialize the FirebaseUI Widget using Firebase.
-  var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    // The start method will wait until the DOM is loaded.
-  // ui.start('#firebaseui-auth-container', uiConfig);
-   function  Initialize (){
-        firebase.auth().onAuthStateChanged(function(user) {
+    $.get('/auth', function(data) {
+         function  Initialize (){
+        data.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
             var providerData = user.providerData;
@@ -46,8 +25,10 @@ $(function () {
   $("#firebaseui-auth-container").on( "click", function() {
      Initialize ();
      setTimeout(function(){location.href='loading.html'; }, 100);
-     
-   });
+  
+   });  
+    });
+
       $("#signOut").on( "click", function() {
         firebase.auth().signOut().then(function() {
             console.log("Sign Out Successful!")

@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
     name: {
       type: DataTypes.TEXT,
       allowNull: false,
+    },
+    photo:{
+      type: DataTypes.TEXT,
+      allowNull: true,
     }
   });
   return user;

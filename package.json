@@ -12,6 +12,8 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "firebase": "^4.7.0",
     "fs": "0.0.1-security",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",

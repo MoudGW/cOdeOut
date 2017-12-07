@@ -1,4 +1,5 @@
 var db = require("../models");
+var firebase=require('../firebase/firebase.js');
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -10,6 +11,10 @@ module.exports = function(app) {
     });
     });
    //---------
+   app.get('/auth',function(req,res){
+    console.log('blabla');
+    firebase();
+   });
     app.get('/user/:uid', function(req, res) {
       var uid = req.params.uid;
     db.user.findAll({
@@ -26,17 +31,18 @@ module.exports = function(app) {
        }
     });
     });
-
     //-----
     app.post("/api/user", function(req, res) {
-    //console.log(req.body);
 
     db.user.create({
       uid: parseInt(req.body.user[0].uid),
-      name: req.body.user[0].displayName
+      name: req.body.user[0].displayName,
+      photo: req.body.user[0].url
     })
     .then(function(dbuser) {
       res.json(db.user);
     });
     });
+    
+
 }
