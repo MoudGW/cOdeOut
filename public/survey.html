@@ -80,9 +80,6 @@ label.star:before {
         <ul class="nav nav-tabs navbar-fixed-top">
           <li><img id='Photo' src=""/></li>
           <li><p id='name'></p></li>
-          <li><p id='uid'></p></li>
-          <li style="    float: right;
-          padding-right: 65px;"><a href="...">status</a></li>
       </ul>
   </div>
   <div class="container" style="margin-top: 100px;">
@@ -283,11 +280,18 @@ label.star:before {
 </body>
 <script type="text/javascript"> 
   $(document).ready(function () {
-    firebase.database().ref().on("value", function (snapshot) {
-      console.log(snapshot.val());
-    });
+
 var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
-console.log(user);
+    firebase.database().ref().on("value", function (snapshot) {
+      var data=snapshot.val();
+      for(var i in data)
+      {
+        if(data[i].name==user[0].displayName)
+        {
+
+        }
+      }
+    });
 $('#Photo').attr('src',user[0].photoUrl);
 $('#name').html(user[0].displayName);
 var answerArray = [];
