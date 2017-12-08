@@ -38,7 +38,7 @@ module.exports = function(app) {
       res.json(db.user);
     });
     });
-    app.post("/user/", function(req, res) {
+    app.post("/user/:name", function(req, res) {
     console.log(req.body);
     var name=req.params.name.replace(/&/g,' ');
     db.user.update(
