@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-     nodejs: {
+     node: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
@@ -35,15 +35,8 @@ module.exports = function(sequelize, DataTypes) {
       mongodb: {
       type: DataTypes.INTEGER,
       allowNull: true,
-    },
+    }
 
   });
   return user;
 };
-js:
-css:
-jquery:
-nodejs:
-nodejs:
-reactjs: 
-mongodb:

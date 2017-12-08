@@ -44,7 +44,7 @@ module.exports = function(app) {
    {js: req.body[1]},
    {css: req.body[2]},
    {jquery: req.body[3]},
-   {nodejs: req.body[4]},
+   {node: req.body[4]},
    {mysql: req.body[5]},
    {reactjs:  req.body[6]},
    {mongodb: req.body[7]},
