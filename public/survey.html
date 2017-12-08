@@ -325,6 +325,7 @@ $('#name').html(user[0].displayName);
  $("#Submit").click(function() {
   getRadioValues();
   if (answerArray.length<8){
+        answerArray=[];
         alertify.error("YOU HAVE TO FILL ALL SURVEY");
   }else{
      var name=user[0].displayName.replace(/ /g,'&');
