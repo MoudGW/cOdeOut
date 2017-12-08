@@ -284,7 +284,7 @@ label.star:before {
 <script type="text/javascript"> 
   $(document).ready(function () {
     firebase.database().ref().on("value", function (snapshot) {
-      console.log(snapshot);
+      console.log(snapshot.val());
     });
 var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
 console.log(user);
