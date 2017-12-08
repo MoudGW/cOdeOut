@@ -290,7 +290,7 @@ label.star:before {
 </div>
 </body>
 <script type="text/javascript"> 
-//  $(document).ready(function () {
+ $(document).ready(function () {
 var answerArray = [];
 var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
     firebase.database().ref().on("value", function (snapshot) {
@@ -336,7 +336,7 @@ $('#name').html(user[0].displayName);
                location.href='home.html';
             });   }
 }); 
-//  });
+  });
 </script>
 
 </html>
