@@ -7,6 +7,7 @@
   <!-- Initialize Firebase -->
   <script src="assets/javascript/initFB.js" type="text/javascript"></script>
   <!-- Firebase Authentication State -->
+  <script src="assets/javascript/fbAuthState.js" type="text/javascript"></script>
    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
   <!-- Added link to the jQuery Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -68,6 +69,7 @@
     </div>
 </body>
 <script type="text/javascript">
+  var data=[];
   $(document).ready(function () {
    var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
     firebase.database().ref('/status').on("child_added", function (snapshot) {
