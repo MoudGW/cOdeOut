@@ -51,7 +51,7 @@ module.exports = function(app) {
    {reactjs:  req.body.user[6]},
    {mongodb: req.body.user[7]},
   {where: {name: name} }).then(function([ rowsUpdate, [updatedBook] ]) {
-   res.json(updatedBook)
+   //res.json(updatedBook)
  });
 });    
    

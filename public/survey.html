@@ -301,7 +301,7 @@ $("#Submit").click(function() {
      var name=user[0].displayName.replace(/ /g,'&');
       $.post('/user/', {
           user: JSON.stringify(answerArray)
-            }, function () {
+            },  function(req, res) { ... });
 
             });
 }); 
