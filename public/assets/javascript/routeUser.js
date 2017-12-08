@@ -2,9 +2,6 @@ initApp = function () {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         // User is signed in.
-         setTimeout(function () {
-              location.href = 'survey.html';
-            }, 2000);
         var providerData = user.providerData;
         console.log(providerData);
         $.get('/user/' + providerData[0].uid, function (data) {
