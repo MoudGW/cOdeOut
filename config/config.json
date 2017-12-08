@@ -15,10 +15,6 @@
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
-    "username": "root",
-    "password": null,
-    "database": "users",
-    "host": "127.0.0.1",
     "dialect": "mysql"
   }
 }
