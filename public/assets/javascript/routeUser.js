@@ -8,16 +8,16 @@ initApp = function () {
           if (data.exist == 'true') {
             console.log('user does exist');
             setTimeout(function () {
-              location.href = 'landingpage.html';
+              location.href = 'data.html';
             }, 2000);
           } else {
             console.log('user does not exist');
-            setTimeout(function () {
-              location.href = 'survey.html';
-            }, 2000);
             $.post('/api/user', {
               user: providerData
             }, function () {});
+            setTimeout(function () {
+              location.href = 'survey.html';
+            }, 2000);
           }
         });
       } else {
