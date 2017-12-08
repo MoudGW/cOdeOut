@@ -1,5 +1,5 @@
 var db = require("../models");
-var firebase=require('../firebase/firebase.js');
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -11,10 +11,6 @@ module.exports = function(app) {
     });
     });
    //---------
-   app.get('/auth',function(req,res){
-    console.log('blabla');
-    firebase();
-   });
     app.get('/user/:uid', function(req, res) {
       var uid = req.params.uid;
     db.user.findAll({

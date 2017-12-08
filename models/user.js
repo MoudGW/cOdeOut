@@ -3,15 +3,14 @@ module.exports = function(sequelize, DataTypes) {
     uid: {
       type: DataTypes.INTEGER,
       allowNull: false,
-
     },
     name: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    photo:{
+      photo: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
     }
   });
   return user;

@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-    <title>data</title>
+  <!-- Added link to the Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <!-- Initialize Firebase -->
+  <script src="assets/javascript/initFB.js" type="text/javascript"></script>
+  <!-- Firebase Authentication State -->
+  <script src="assets/javascript/fbAuthState.js" type="text/javascript"></script>
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <title>data</title>
 </head>
+
 <body>
   <table class="table">
     <thead>
@@ -18,21 +27,31 @@
     <tbody id='data'>
 
     </tbody>
-  </table> 
- <div class="row text-center " style='margin-top: 185px;'>
-   <button type="button" class="btn btn-danger" id="signOut">Sign Out</button>
+  </table>
+  <div class="row text-center " style='margin-top: 185px;'>
+    <button type="button" class="btn btn-danger" id="signOut">Sign Out</button>
 
 </body>
 <script type="text/javascript">
-    $( document ).ready(function() {
-    $.get('/api/users/', function( data ) {
-     for(var index in data){
-        var id='<th>'+data[index].id+'</th>';
-        var uid='<th>'+data[index].uid+'</th>';
-        var name='<th>'+data[index].name+'</th>';
-        $('#data').append('<tr>'+id+uid+name+'</tr>');
-     }
+  $(document).ready(function () {
+    $.get('/api/users/', function (data) {
+      for (var index in data) {
+        var id = '<th>' + data[index].id + '</th>';
+        var uid = '<th>' + data[index].uid + '</th>';
+        var name = '<th>' + data[index].name + '</th>';
+        $('#data').append('<tr>' + id + uid + name + '</tr>');
+      }
     });
+
+    $("#signOut").on("click", function () {
+      firebase.auth().signOut().then(function () {
+        console.log("Sign Out Successful!")
+      }).catch(function (error) {
+        console.log("Error")
+        // An error happened.
+      });
     });
+  });
 </script>
+
 </html>
