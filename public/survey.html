@@ -271,7 +271,8 @@ label.star:before {
 </body>
 <script type="text/javascript"> 
 var user=localStorage.getItem('firebaseui::rememberedAccounts');
-$('#Photo').attr('src'.user[0].photoURL);
+console.log(user);
+$('#Photo').attr('src',user[0].photoURL);
 $('#name').html(user[0].displayName);
 $('#uid').html(uid);
 var answerArray = [];
