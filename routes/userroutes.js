@@ -40,6 +40,7 @@ module.exports = function(app) {
     });
     app.post("/user/:name", function(req, res) {
    console.log(req.body);
+     var name=req.params.name.replace('+',' ');
     db.user.update(
    {html: req.body.user[0]},
    {js: req.body.user[1]},
@@ -49,7 +50,7 @@ module.exports = function(app) {
    {mysql: req.body.user[5]},
    {reactjs:  req.body.user[6]},
    {mongodb: req.body.user[7]},
-  {where: {name: req.params.name} }).then(function([ rowsUpdate, [updatedBook] ]) {
+  {where: {name: name} }).then(function([ rowsUpdate, [updatedBook] ]) {
    res.json(updatedBook)
  });
 });    
