@@ -12,7 +12,7 @@ module.exports = function(app) {
     });
    //---------
     app.get('/user/:uid', function(req, res) {
-      var uid = req.params.uid;
+    var uid = req.params.uid;
     db.user.findAll({
     where: {
     uid: uid}
@@ -32,7 +32,7 @@ module.exports = function(app) {
 
     db.user.create({
       uid: parseInt(req.body.user[0].uid),
-      name: req.body.user[0].displayName,
+      name: req.body.user[0].username,
       photo: req.body.user[0].photoURL
     })
     .then(function(dbuser) {
