@@ -32,7 +32,7 @@ module.exports = function(app) {
 
     db.user.create({
       uid: parseInt(req.body.user[0].uid),
-      name: req.body.user[0].username,
+      name: req.body.user[0].displayName,
       photo: req.body.user[0].photoURL
     })
     .then(function(dbuser) {
