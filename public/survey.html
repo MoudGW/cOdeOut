@@ -298,9 +298,10 @@ var answerArray = [];
 $("#Submit").click(function() {
   getRadioValues();
   console.log(answerArray);
-      $.post('/api/'+user[0].displayName, {
+      $.post('/user/'+user[0].displayName, {
               user: answerArray 
             }, function () {
+
             });
 }); 
   function getRadioValues() {
