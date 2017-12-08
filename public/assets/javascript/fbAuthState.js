@@ -30,6 +30,7 @@ initApp = function () {
             // We'll create two constants which we will write to 
             // the Realtime database when this device is offline
             // or online.
+            console.log(userStatusDatabaseRef);
             var isOfflineForDatabase = {
                 state: "offline",
                 photo: photoURL,
