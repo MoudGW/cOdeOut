@@ -3,8 +3,6 @@ initApp = function () {
       if (user) {
         // User is signed in.
         var providerData = user.providerData;
-        console.log(providerData);
-        localStorage.setItem('uid',providerData[0].uid);
         $.get('/user/' + providerData[0].uid, function (data) {
           if (data.exist == 'true') {
             console.log('user does exist');

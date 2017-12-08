@@ -7,6 +7,11 @@
    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'></script>
   <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
   <style type="text/css">
+     img {
+    border: 8px solid #39CCCC;
+    border-radius: 50%;
+    zoom: 15%;   
+    }
   i{
 
      zoom: 10;
@@ -61,9 +66,9 @@ label.star:before {
 <body>
 	<div id="nav">
         <ul class="nav nav-tabs navbar-fixed-top">
-          <li><img src="codeOut6.png"/></li>
-          <li><a href="...">Photouser</a></li>
-          <li><a href="...">username</a></li>
+          <li><img id='Photo' src=""/></li>
+          <li><p id='name'></p></li>
+          <li><p id='uid'></p></li>
           <li style="    float: right;
           padding-right: 65px;"><a href="...">status</a></li>
       </ul>
@@ -265,12 +270,10 @@ label.star:before {
 </div>
 </body>
 <script type="text/javascript"> 
-var uid=localStorage.getItem('firebaseui::rememberedAccounts');
-console.log(uid);
- $.get('/user/' +uid, function (data) {
-   
-   console.log(data);
- });
+var user=localStorage.getItem('firebaseui::rememberedAccounts');
+$('#Photo').attr('src'.user[0].photoURL);
+$('#name').html(user[0].displayName);
+$('#uid').html(uid);
 var answerArray = [];
 $("#Submit").click(function() {
   getRadioValues();
