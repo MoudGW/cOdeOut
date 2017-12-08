@@ -60,9 +60,9 @@
  <div class="container" style="margin-top: 100px;">
     
     <div  class="row text-center" style="margin-bottom: 60px;"> 
-        <div class="col-sm-12"> 
-            <h1 class="heading-large section-color-1">Wolcome</h1>
-        </div>
+        <div class="container text-center">
+       <button id='Submit' type="button" class="btn btn-success">Click to find a code mate</button>
+       </div>
         
     </div>
     <div id='users' class="row text-center">
@@ -88,12 +88,10 @@
        name=data[i].name
        }
        var state=data[i].state; 
-       var html="<div class='col-sm-4'><img class='photos' src="+img+"/></div>"
+       var html="<div class='col-sm-4'><img class='photos' src="+img+"/><p>"+name+"</p></div>"
        $('#users').append('<div>'+html+"</div>");
-      }
-    });
-
-
+       }
+     });
   });
 </script>
 
