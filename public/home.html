@@ -15,11 +15,17 @@
     crossorigin="anonymous">
   <title>home</title>
    <style type="text/css">
-    #photo{
+    #Photo{
     border: 8px solid #39CCCC;
     border-radius: 50%;
     zoom: 15%; 
     margin-left: 300px;  
+    }
+    .photos{
+      border: 8px solid #39CCCC;
+    border-radius: 50%;
+    zoom: 40%; 
+    margin-left: 300px; 
     }
     i{
 
@@ -62,6 +68,7 @@
   $(document).ready(function () {
    var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
     firebase.database().ref().on("value", function (snapshot) {
+      console.log()
       var data=snapshot.val();
       for(var i in data)
       {
