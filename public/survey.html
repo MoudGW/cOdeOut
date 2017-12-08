@@ -321,11 +321,8 @@ $('#name').html(user[0].displayName);
       $.post('/user/'+name, {
           user:answerArray
             },  function(req, res) {
-
-            });
-      $.get("/api/users/", function (data) {
-                console.log(data);
-               });     
+               location.href='home.html';
+            });   
 }); 
   });
 </script>
