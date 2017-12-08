@@ -265,7 +265,8 @@ label.star:before {
 </div>
 </body>
 <script type="text/javascript"> 
-var uid=localStorage.getItem("uid");
+var uid=localStorage.getItem('firebaseui::rememberedAccounts');
+console.log(uid);
  $.get('/user/' +uid, function (data) {
    
    console.log(data);
