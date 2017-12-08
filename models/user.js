@@ -4,14 +4,46 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    name: {
-      type: DataTypes.TEXT,
-      allowNull: false,
+     html: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     },
-      photo: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    }
+     js: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+     css: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+       jquery:{
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+     nodejs: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    mysql: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+       reactjs: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+      mongodb: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+
   });
   return user;
 };
+js:
+css:
+jquery:
+nodejs:
+nodejs:
+reactjs: 
+mongodb:

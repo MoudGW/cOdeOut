@@ -7,7 +7,7 @@
   <!-- Initialize Firebase -->
   <script src="assets/javascript/initFB.js" type="text/javascript"></script>
   <!-- Firebase Authentication State -->
-
+ <script src="assets/javascript/fbAuthState.js" type="text/javascript"></script>
    <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
   <!-- Added link to the jQuery Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -87,7 +87,7 @@
        }
        var state=data[i].state; 
        var html="<div class='col-sm-4'><img class='photos' src="+img+"/></div>"+
-       "<div class="col-sm-4"><p>"+name+"</p></div>"+"<p>"+state+"</p>";
+       "<div class="col-sm-4"><p>"+name+"</p></div>";
        $('#users').append('<div>'+html+"</div>");
       }
     });
