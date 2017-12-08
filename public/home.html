@@ -71,6 +71,8 @@
 <script type="text/javascript">
   $(document).ready(function () {
    var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
+   $('#Photo').attr('src',user[0].photoUrl);
+   $('#name').html(user[0].displayName);
     firebase.database().ref('/status').once("value", function (snapshot) {
       console.log(snapshot.val());
       var data=snapshot.val();
@@ -91,8 +93,7 @@
        $('#users').append('<div>'+html+"</div>");
       }
     });
-$('#Photo').attr('src',user[0].photoUrl);
-$('#name').html(user[0].displayName);
+
 
   });
 </script>
