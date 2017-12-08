@@ -270,9 +270,10 @@ label.star:before {
 </div>
 </body>
 <script type="text/javascript"> 
+  $(document).ready(function () {
 var user=localStorage.getItem('firebaseui::rememberedAccounts');
-console.log(user);
-$('#Photo').attr('src',user[0].photoURL);
+console.log(user[0]);
+$('#Photo').attr('src',user[0].photoUrl);
 $('#name').html(user[0].displayName);
 $('#uid').html(uid);
 var answerArray = [];
@@ -291,6 +292,7 @@ $("#Submit").click(function() {
          }
      }
    }
+ });
 </script>
 
 </html>
