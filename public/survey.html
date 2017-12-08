@@ -300,7 +300,7 @@ $("#Submit").click(function() {
   console.log(answerArray);
      var name=user[0].displayName.replace(/ /g,'&');
       $.post('/user/'+name, {
-              user: answerArray 
+              user: JSON.stringify(answerArray)
             }, function () {
 
             });
