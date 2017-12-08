@@ -39,7 +39,6 @@ module.exports = function(app) {
     });
     });
     app.post("/user/:name", function(req, res) {
-    console.log(req.body);
     var name=req.params.name.replace(/&/g,' ');
     db.user.update(
     {html: req.body.user[0]},
@@ -49,10 +48,9 @@ module.exports = function(app) {
     {node: req.body.user[4]},
    {mysql: req.body.user[5]},
    {reactjs:  req.body.user[6]},
-   {mongodb: req.body.user[7]},
-  {where: {name: name} }).then(function([ rowsUpdate, [updatedBook] ]) {
-   //res.json(updatedBook)
- });
+   {where: {name: name} }).then(function(dbuser) {
+      res.json(db.user);
+    });
 });    
    
 
