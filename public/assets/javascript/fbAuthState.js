@@ -48,8 +48,7 @@ initApp = function () {
             // Realtime Database. This path returns `true` when connected
             // and `false` when disconnected.
             firebase.database().ref(".info/connected").on("value", function (snapshot) {
-                // If we're not currently connected, don't do anything.
-                console.log(snapshot.val());
+
                 if (snapshot.val() == false) {
                     return;
                 };

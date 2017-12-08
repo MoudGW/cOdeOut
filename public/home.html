@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Added link to the Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <!-- Initialize Firebase -->
+  <script src="assets/javascript/initFB.js" type="text/javascript"></script>
+  <!-- Firebase Authentication State -->
+  <script src="assets/javascript/fbAuthState.js" type="text/javascript"></script>
+   <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <title>home</title>
+   <style type="text/css">
+    #photo{
+    border: 8px solid #39CCCC;
+    border-radius: 50%;
+    zoom: 15%; 
+    margin-left: 300px;  
+    }
+    i{
+
+     zoom: 10;
+    }
+   div.stars {
+  width: 270px;
+  display: inline-block;
+  }
+.nav{
+    background: #DDDDDD;
+}
+.nav-tabs>li>a{
+      color: black;
+}
+</style>
+</head>
+
+<body>
+<div id="nav">
+        <ul class="nav nav-tabs navbar-fixed-top">
+          <li><img id='Photo' src=""/></li>
+          <li><p id='name'></p></li>
+          <li style="    float: right;
+          padding-right: 65px;"><p id='name'></p></li>
+      </ul>
+</div>
+ <div class="container" style="margin-top: 100px;">
+    
+    <div  class="row text-center" style="margin-bottom: 60px;"> 
+        <div class="col-sm-12"> 
+            <h1 class="heading-large section-color-1">Wolcome</h1>
+        </div>
+        
+    </div>
+    <div id='users' class="row text-center">
+    </div>
+</body>
+<script type="text/javascript">
+  $(document).ready(function () {
+   var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
+    firebase.database().ref().on("value", function (snapshot) {
+      var data=snapshot.val();
+      for(var i in data)
+      {
+      var img=data[i].photo;
+      var name;
+      if(data[i].name=='')
+      {name='Unknown';
+       }else
+       {
+       name=data[i].name
+       }
+       var state=data[i].state; 
+       var html="<img class='photos' src="+img+"/>"+'<p>'+name+"</p>"+"<p>"+state+"</p>";
+       $('#users').append('<div>'+html+"</div>");
+     }
+    });
+$('#Photo').attr('src',user[0].photoUrl);
+$('#name').html(user[0].displayName);
+
+  });
+</script>
+
+</html>

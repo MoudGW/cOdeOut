@@ -7,7 +7,7 @@ initApp = function () {
           if (data.exist == 'true') {
             console.log('user does exist');
             setTimeout(function () {
-              location.href = 'data.html';
+              location.href = 'home.html';
             }, 2000);
           } else {
             console.log('user does not exist');
