@@ -11,20 +11,5 @@ $(document).ready(function () {
             
             console.log(getData[i].name)
         };
-
-
-        // console.log(getData);
-
-
-
-
     });
-
-
-
-
-
-
-
-
 });

@@ -4,13 +4,14 @@
 	<title>survey</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-mfizz/2.4.1/font-mfizz.css">
+   <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'></script>
   <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
   <style type="text/css">
   i{
 
      zoom: 10;
- }
+  }
  div.stars {
   width: 270px;
   display: inline-block;
@@ -265,7 +266,13 @@ label.star:before {
 </div>
 </body>
 <script type="text/javascript">
-  
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        // User is signed in.
+        var providerData = user.providerData;
+        console.log(providerData);
+        }
+        });  
 var answerArray = [];
 $("#Submit").click(function() {
   getRadioValues();
