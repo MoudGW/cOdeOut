@@ -71,7 +71,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
    var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
-    firebase.database().ref().on("value", function (snapshot) {
+    firebase.database().ref('/status').on("value", function (snapshot) {
       console.log(snapshot.val());
       var data=snapshot.val();
       for(var i in data)
