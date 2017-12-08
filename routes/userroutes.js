@@ -40,7 +40,7 @@ module.exports = function(app) {
     });
     app.post("/user/:name", function(req, res) {
         var name=req.params.name.replace(/&/g,' ');
-  res.json(req.body);
+  res.json(req.body.user[0]);
       /*
     var name=req.params.name.replace(/&/g,' ');
     db.user.update(
