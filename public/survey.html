@@ -265,6 +265,11 @@ label.star:before {
 </div>
 </body>
 <script type="text/javascript"> 
+var uid=localStorage.getItem("uid");
+ $.get('/user/' +uid, function (data) {
+   
+   console.log(data);
+ });
 var answerArray = [];
 $("#Submit").click(function() {
   getRadioValues();
