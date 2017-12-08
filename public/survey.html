@@ -298,7 +298,7 @@ var answerArray = [];
 $("#Submit").click(function() {
   getRadioValues();
   console.log(answerArray);
-     var name=user[0].displayName.replace(/&/g, ' ');
+     var name=user[0].displayName.replace(/ /g,'&');
       $.post('/user/'+name, {
               user: answerArray 
             }, function () {
