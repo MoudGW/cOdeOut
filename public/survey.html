@@ -14,6 +14,9 @@
 
    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'></script>
   <link rel=stylesheet href="https://s3-us-west-2.amazonaws.com/colors-css/2.2.0/colors.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.core.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.default.min.css" />
   <style type="text/css">
      img {
     border: 8px solid #39CCCC;
@@ -317,12 +320,15 @@ $('#name').html(user[0].displayName);
    }
  $("#Submit").click(function() {
   getRadioValues();
+  if (answerArray.length<8){
+        alertify.error("YOU HAVE TO FILL ALL SURVEY");
+  }else{
      var name=user[0].displayName.replace(/ /g,'&');
       $.post('/user/'+name, {
           user:answerArray
             },  function(req, res) {
                location.href='home.html';
-            });   
+            });   }
 }); 
   });
 </script>
