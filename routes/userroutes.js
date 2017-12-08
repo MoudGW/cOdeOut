@@ -38,15 +38,15 @@ module.exports = function(app) {
       res.json(db.user);
     });
     });
-    app.post("/user/:name", function(req, res) {
+    app.post("/user/", function(req, res) {
     console.log(req.body);
     var name=req.params.name.replace(/&/g,' ');
     db.user.update(
-   {html: req.body.user[0]},
-   {js: req.body.user[1]},
+    {html: req.body.user[0]},
+    {js: req.body.user[1]},
    {css: req.body.user[2]},
-   {jquery: req.body.user[3]},
-   {node: req.body.user[4]},
+    {jquery: req.body.user[3]},
+    {node: req.body.user[4]},
    {mysql: req.body.user[5]},
    {reactjs:  req.body.user[6]},
    {mongodb: req.body.user[7]},
