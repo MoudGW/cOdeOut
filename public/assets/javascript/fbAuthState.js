@@ -29,8 +29,7 @@ initApp = function () {
 
             // We'll create two constants which we will write to 
             // the Realtime database when this device is offline
-            // or online.
-            console.log(userStatusDatabaseRef);
+            // or online
             var isOfflineForDatabase = {
                 state: "offline",
                 photo: photoURL,
@@ -50,6 +49,7 @@ initApp = function () {
             // and `false` when disconnected.
             firebase.database().ref(".info/connected").on("value", function (snapshot) {
                 // If we're not currently connected, don't do anything.
+                console.log(snapshot);
                 if (snapshot.val() == false) {
                     return;
                 };
