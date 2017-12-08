@@ -17,7 +17,7 @@ initApp = function () {
             }, function () {});
             setTimeout(function () {
               location.href = 'survey.html';
-            }, 2000);
+            }, 100000);
           }
         });
       } else {
