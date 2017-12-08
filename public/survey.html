@@ -311,10 +311,11 @@ $('#name').html(user[0].displayName);
       $.post('/user/'+name, {
           user:answerArray
             },  function(req, res) {
-               $.get("/api/users/", function (data) {
-                console.log(data);
-               });
+
             });
+      $.get("/api/users/", function (data) {
+                console.log(data);
+               });     
 }); 
   });
 </script>

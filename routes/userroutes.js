@@ -51,7 +51,7 @@ module.exports = function(app) {
     mysql: parseInt(req.body.user[5]),
     reactjs:  parseInt(req.body.user[6])},
     {where: {name: name} }).then(function(dbuser) {
-      res.json(db.user);
+      res.json(dbuser);
     });
 });    
    
