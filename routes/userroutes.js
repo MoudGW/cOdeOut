@@ -39,18 +39,20 @@ module.exports = function(app) {
     });
     });
     app.post("/user/:name", function(req, res) {
+  res.json('sent');
+      /*
     var name=req.params.name.replace(/&/g,' ');
     db.user.update(
     {html: req.body.user[0]},
     {js: req.body.user[1]},
-   {css: req.body.user[2]},
+    {css: req.body.user[2]},
     {jquery: req.body.user[3]},
     {node: req.body.user[4]},
-   {mysql: req.body.user[5]},
-   {reactjs:  req.body.user[6]},
-   {where: {name: name} }).then(function(dbuser) {
+    {mysql: req.body.user[5]},
+    {reactjs:  req.body.user[6]},
+    {where: {name: name} }).then(function(dbuser) {
       res.json(db.user);
-    });
+    });*/
 });    
    
 
