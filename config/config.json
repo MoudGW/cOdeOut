@@ -13,8 +13,11 @@
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
-  "production": {
-    "use_env_variable": "m7wltxurw8d2n21q.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"
-  }
+   "production": {
+    "username": "w7d83ykb3mzoojbw",
+    "password": "scosr7x7vn89hkb6",
+    "database": "lwc68fnx6n50ifh1",
+    "host": "m7wltxurw8d2n21q.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "use_env_variable": "mysql://w7d83ykb3mzoojbw:scosr7x7vn89hkb6@m7wltxurw8d2n21q.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/lwc68fnx6n50ifh1"  }
 }
