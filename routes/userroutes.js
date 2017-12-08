@@ -49,7 +49,8 @@ module.exports = function(app) {
     jquery: parseInt(req.body.user[3]),
     node: parseInt(req.body.user[4]),
     mysql: parseInt(req.body.user[5]),
-    reactjs:  parseInt(req.body.user[6])},
+    reactjs:  parseInt(req.body.user[6]),
+    mongodb:  parseInt(req.body.user[7])},
     {where: {name: name} }).then(function(dbuser) {
       res.json(dbuser);
     });
