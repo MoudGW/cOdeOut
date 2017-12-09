@@ -29,6 +29,7 @@ $('#name').html(user[0].displayName);
       $.post('/update/'+uid, {
           user:answerArray
             },  function(req, res) {
+                console.log(req);
                answerArray = [];
                 setTimeout(function () {
               location.href='home.html';
