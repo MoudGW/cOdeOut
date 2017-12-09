@@ -6,6 +6,7 @@
       $('#loading').remove();
       $('#Submit').css('opacity',1);
       firebase.database().ref('/status').on("value", function (snapshot) {
+      $('#users').html('');
       var data=snapshot.val();
       console.log(data);
       for(var i in data)
