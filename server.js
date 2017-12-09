@@ -2,8 +2,6 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require('express-handlebars');
 var path =require('path');
-const server = require('http').Server(app);
-const io = require('socket.io')(server);
 // Sets up the Express App
 // =============================================================
 var app = express();
