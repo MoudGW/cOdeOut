@@ -2,7 +2,7 @@ $(document).ready(function () {
    var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
    $('#Photo').attr('src',user[0].photoUrl);
    $('#name').html(user[0].displayName);
-    var socket = io.connect('https://protected-forest-10427.herokuapp.com/');
+    var socket = io.connect('https://protected-forest-10427.herokuapp.com');
      socket.emit('name',{
      name:user[0].displayName
    });
@@ -11,7 +11,7 @@ $(document).ready(function () {
       $('#loading').remove();
       $('#Submit').css('opacity',1);
       firebase.database().ref('/status').on("value", function (snapshot) {
-     // $('#users').html('');
+      $('#users').html('');
       var data=snapshot.val();
       console.log(data);
       for(var i in data)
