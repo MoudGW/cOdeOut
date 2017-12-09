@@ -38,9 +38,9 @@ module.exports = function(app) {
       res.json(db.user);
     });
     });
-    app.post("/user/:name", function(req, res) {
-    var name=req.params.name.replace(/&/g,' ');
-    var name=req.params.name.replace(/&/g,' ');
+    app.post("/update/:uid", function(req, res) {
+    var uid=req.params.uid;
+    console.log(req.body);
     db.user.update(
     {html: parseInt(req.body.user[0]),
     js: parseInt(req.body.user[1]),
@@ -50,7 +50,7 @@ module.exports = function(app) {
     mysql: parseInt(req.body.user[5]),
     reactjs:  parseInt(req.body.user[6]),
     mongodb:  parseInt(req.body.user[7])},
-    {where: {name: name} }).then(function(dbuser) {
+    {where: {uid:uid} }).then(function(dbuser) {
       res.json(dbuser);
     });
 });    
