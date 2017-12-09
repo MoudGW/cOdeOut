@@ -1,5 +1,6 @@
  $(document).ready(function () {
    var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
+   var uid=JSON.parse(localStorage.getItem('uid'));
    $('#Photo').attr('src',user[0].photoUrl);
    $('#name').html(user[0].displayName);
    setTimeout(function(){
@@ -21,14 +22,17 @@
        name=data[i].name;
        }
        var state=data[i].state;
+       if (uid!=data[i].uid)
+       {
        if(state=='offline')
        {
         var html="<div class='col-sm-4 text-center classy'><img class='photos offline' src="+img+"/><div class='centred'>"+state+"</div></div>"
        }
        else{
-         var html="<div class='col-sm-4 text-center'><img class='photos' src="+img+"><div class='centred'>"+state+"</div></div>";
+         var html="<div><div class='col-sm-4 text-center'><img class='photos' src="+img+"><div class='centred'>"+state+"</div></div><button id='Submit' type='button' class='btn btn-success'>Connect</button></div>";
        }
        $('#users').append(html);
+       }
        }
     });},3000);
   });
