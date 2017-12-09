@@ -23,7 +23,7 @@
        var state=data[i].state;
        if(state=='offline')
        {
-        var html="<div class='col-sm-4 text-center classy'><img class='photos offline' src="+img+"/><<div class='centred'>"+state+"</div></div>"
+        var html="<div class='col-sm-4 text-center classy'><img class='photos offline' src="+img+"/><div class='centred'>"+state+"</div></div>"
        }
        else{
          var html="<div class='col-sm-4 text-center'><img class='photos' src="+img+"><div class='centred'>"+state+"</div></div>";
