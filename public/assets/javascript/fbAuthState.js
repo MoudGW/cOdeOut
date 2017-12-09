@@ -33,6 +33,7 @@ initApp = function () {
             var isOfflineForDatabase = {
                 state: "offline",
                 photo: photoURL,
+                uid:uid,
                 name: displayName,
                 last_changed: firebase.database.ServerValue.TIMESTAMP,
             };
@@ -40,6 +41,7 @@ initApp = function () {
             var isOnlineForDatabase = {
                 state: "online",
                 photo: photoURL,
+                uid:uid,
                 name: displayName,
                 last_changed: firebase.database.ServerValue.TIMESTAMP,
             };

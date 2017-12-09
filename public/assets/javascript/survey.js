@@ -1,6 +1,7 @@
  $(document).ready(function () {
 var answerArray = [];
 var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
+console.log(user);
 $('#Photo').attr('src',user[0].photoUrl);
 $('#name').html(user[0].displayName);
        if(user[0].displayName=='')
@@ -26,8 +27,7 @@ $('#name').html(user[0].displayName);
         answerArray=[];
         alertify.error("YOU HAVE TO FILL ALL SURVEY");
   }else{
-     var name=user[0].displayName.replace(/ /g,'&');
-      $.post('/user/'+name, {
+      $.post('/user/'+uid, {
           user:answerArray
             },  function(req, res) {
                location.href='home.html';
