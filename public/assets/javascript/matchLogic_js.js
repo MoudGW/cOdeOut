@@ -4,9 +4,8 @@ $(document).ready(function () {
         topMatches();
     });
     function topMatches() {
-        $.get("/api/users", function (data) {
+        $.get("/api/users/", function (data) {
             var user = JSON.parse(localStorage.getItem('uid'));
-            console.log(user); 
             console.log(data);           
             var bestMatch;
             var bestMatchDifference = 1000;
