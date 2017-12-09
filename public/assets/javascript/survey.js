@@ -1,5 +1,4 @@
  $(document).ready(function () {
-var answerArray = [];
 var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
 var uid=JSON.parse(localStorage.getItem('uid'));
 $('#Photo').attr('src',user[0].photoUrl);
@@ -30,7 +29,11 @@ $('#name').html(user[0].displayName);
       $.post('/update/'+uid, {
           user:answerArray
             },  function(req, res) {
-               location.href='home.html';
+               answerArray = [];
+                setTimeout(function () {
+              location.href='home.html';
+            }, 500);
+              
             });   
     }
 }); 
