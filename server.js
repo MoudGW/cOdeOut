@@ -5,6 +5,7 @@ var path =require('path');
 var server = require('http').createServer(app);  
 var socket = require('socket.io');
 // Sets up the Express App
+var connection=[];
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -37,11 +38,17 @@ db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-    var io=socket(server);
-io.on('connection', function(client) {  
-    console.log('Client connected...');
-    client.on('uid',function(data){
-    	console.log(data);
-    }); 
-});
+ var io=socket(server);
+   io.on('connection', function(client) {  
+    client.on('name',function(data){
+      users[data.name]=client.id;
+        console.log(users);
+    });
+     client.on('mate',function(data){
+
+        if(users[data.mate]!=undefined)
+        {
+         io.to(users[data.mate]).emit('new user', 'New Mate want to connect with you');    
+        }
+    });
 });

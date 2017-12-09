@@ -1,13 +1,17 @@
- $(document).ready(function () {
+$(document).ready(function () {
    var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
-   var uid=JSON.parse(localStorage.getItem('uid'));
    $('#Photo').attr('src',user[0].photoUrl);
    $('#name').html(user[0].displayName);
+    var socket = io.connect('https://protected-forest-10427.herokuapp.com/');
+     socket.emit('name',{
+     name:user[0].displayName
+   });
+
    setTimeout(function(){
       $('#loading').remove();
       $('#Submit').css('opacity',1);
       firebase.database().ref('/status').on("value", function (snapshot) {
-      $('#users').html('');
+     // $('#users').html('');
       var data=snapshot.val();
       console.log(data);
       for(var i in data)
@@ -22,17 +26,25 @@
        name=data[i].name;
        }
        var state=data[i].state;
-       if (uid!=data[i].uid)
-       {
        if(state=='offline')
        {
-        var html="<div class='col-sm-4 text-center classy'><img class='photos offline' src="+img+"/><div class='centred'>"+state+"</div></div>"
+        var html="<div class='col-sm-4 text-center classy'><img class='photos offline' src="+img+"/><<div class='centred'>"+state+"</div></div>"
        }
        else{
-         var html="<div class='col-sm-4 text-center'><img class='photos' src="+img+"><div class='centred'>"+state+"</div></div>";
+         var html="<div id='"+name+"' class='col-sm-4 text-center online'><img class='photos' src="+img+"><div class='centred'>"+state+"</div></div>";
        }
        $('#users').append(html);
        }
-       }
+        $('.online').on( "click", function() {
+          console.log($(this).attr("id"));
+            socket.emit('mate',{
+            mate:$(this).attr("id")
+         });
+      socket.on('new user', function(id){
+       swal(id,{
+       buttons: ["next time", "yes"],
+      });
+       });
+        });
     });},3000);
   });
