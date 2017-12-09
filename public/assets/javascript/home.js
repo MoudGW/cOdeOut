@@ -29,7 +29,7 @@
         var html="<div class='col-sm-4 text-center classy'><img class='photos offline' src="+img+"/><div class='centred'>"+state+"</div></div>"
        }
        else{
-         var html="<div class='col-sm-4 text-center><div class='col-sm-4 text-center'><img class='photos' src="+img+
+         var html="<div class='col-sm-4 text-center'><div class='col-sm-4 text-center'><img class='photos' src="+img+
          "/><div class='centred'>"+state+"</div></div><button id='Submit' type='button' class='btn btn-success'>Connect</button></div>";
        }
        $('#users').append(html);
