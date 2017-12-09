@@ -2,6 +2,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require('express-handlebars');
 var path =require('path');
+var server = require('http').createServer(app);  
+var socket = require('socket.io');
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -35,4 +37,11 @@ db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
+    var io=socket(server);
+io.on('connection', function(client) {  
+    console.log('Client connected...');
+    client.on('uid',function(data){
+    	console.log(data);
+    }); 
+});
 });
