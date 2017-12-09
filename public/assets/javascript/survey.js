@@ -1,4 +1,5 @@
  $(document).ready(function () {
+  var  answerArray=[];
 var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
 var uid=JSON.parse(localStorage.getItem('uid'));
 $('#Photo').attr('src',user[0].photoUrl);
