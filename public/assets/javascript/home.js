@@ -2,7 +2,7 @@ $(document).ready(function () {
    var user=JSON.parse(localStorage.getItem('firebaseui::rememberedAccounts'));
    $('#Photo').attr('src',user[0].photoUrl);
    $('#name').html(user[0].displayName);
-    var socket = io('https://protected-forest-10427.herokuapp.com');
+    var socket = io();
      socket.emit('name',{
      name:user[0].displayName
    });
