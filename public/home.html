@@ -41,7 +41,7 @@
 <script>
 
 // connect to server.js socket
- var socket = io.connect('http://localhost:8080');
+ var socket = io.connect('https://protected-forest-10427.herokuapp.com/');
  socket.emit('uid',{
    uid:localStorage.getItem('uid')
  });
